@@ -24,3 +24,9 @@
     name: "{{ item }}"
     shell: /usr/local/bin/zsh
   with_items: "{{ oh_my_zsh_users }}"
+
+- name: disable login banner
+  copy:
+    content: ""
+    dest: "~/.hushlogin"
+    force: no
