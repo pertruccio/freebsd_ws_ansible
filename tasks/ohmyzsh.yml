@@ -13,7 +13,7 @@
 
 - name: create ~/.zshrc
   file:
-    src: "~/.oh-my-zsh/templates/zshrc.zsh-template"
+    src: "~/.dotfiles/.zshrc"
     dest: "~/.zshrc"
     state: link
   become_user: "{{ item }}"

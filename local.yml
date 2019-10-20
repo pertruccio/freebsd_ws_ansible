@@ -7,4 +7,5 @@
     oh_my_zsh_backup_zshrc: yes
   tasks:
     - include: tasks/packages.yml
+    - include: tasks/dotfiles.yml
     - include: tasks/ohmyzsh.yml
