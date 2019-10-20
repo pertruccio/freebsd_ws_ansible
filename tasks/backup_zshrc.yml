@@ -1,0 +1,14 @@
+---
+- name: check if .zshrc existing
+  stat:
+    path: "~/.zshrc"
+  register: zshrc_path
+
+- name: backup .zshrc file
+  copy:
+    src: "~/.zshrc"
+    dest: "~/.zshrc.orig"
+    follow: yes
+    remote_src: True
+  when: zshrc_path.stat.exists
+  changed_when: False

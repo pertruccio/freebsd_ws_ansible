@@ -1,5 +1,10 @@
 - hosts: localhost
   become: true
 
+  oh_my_zsh_users:
+  - "{{ ansible_ssh_user }}"
+  - root
+
   tasks:
     - include: tasks/packages.yml
+    - include: tasks/ohmyzsh.yml

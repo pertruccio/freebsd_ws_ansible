@@ -1,0 +1,26 @@
+- name: deploy oh-my-zsh
+  git: 
+    repo: "{{ oh_my_zsh_repo }}"
+    dest: "~/.oh-my-zsh"
+  become_user: "{{ item }}"
+  with_items: "{{ oh_my_zsh_users }}"
+
+- name: backup existing zshrc
+  include: backup_zshrc.yml
+  when: oh_my_zsh_backup_zshrc | bool
+  become_user: "{{ item }}"
+  with_items: "{{ oh_my_zsh_users }}"
+
+- name: create ~/.zshrc
+  file:
+    src: "~/.oh-my-zsh/templates/zshrc.zsh-template"
+    dest: "~/.zshrc"
+    state: link
+  become_user: "{{ item }}"
+  with_items: "{{ oh_my_zsh_users }}"
+
+- name: set zsh as default shell
+  user: 
+    name: "{{ item }}"
+    shell: /bin/zsh
+  with_items: "{{ oh_my_zsh_users }}"
