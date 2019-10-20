@@ -1,6 +1,7 @@
 - hosts: localhost
   become: true
-
+  vars:
+    - include: defaults/defaults.yml
   tasks:
     - include: tasks/packages.yml
     - include: tasks/ohmyzsh.yml
