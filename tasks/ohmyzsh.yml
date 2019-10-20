@@ -22,5 +22,5 @@
 - name: set zsh as default shell
   user: 
     name: "{{ item }}"
-    shell: /bin/zsh
+    shell: /usr/local/bin/zsh
   with_items: "{{ oh_my_zsh_users }}"
