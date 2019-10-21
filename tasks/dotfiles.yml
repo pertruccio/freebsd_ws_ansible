@@ -18,8 +18,14 @@
     remote_src: True
   when: authorized_keys_path.stat.exists
   changed_when: False
+
 - name: set new .ssh/authorized_keys
   file:
     src: "~/.dotfiles/.ssh/authorized_keys"
     dest: "~/.ssh/authorized_keys"
     state: link
+
+- name: Restart service sshd, in all cases
+  service:
+    name: sshd
+    state: restarted
