@@ -1,2 +1,2 @@
 - name: get secrets from vault
-  include_vars: /group_vars/ssmtp/variables.yml
+  include_vars: ../group_vars/ssmtp/variables.yml
