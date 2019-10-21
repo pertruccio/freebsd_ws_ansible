@@ -2,3 +2,8 @@
   copy:
     src: "../templates/ssmtp.conf"
     dest: "/usr/local/etc/ssmtp/ssmtp.conf"
+
+- name: copy mailwrapper config
+  copy:
+    src: "../templates/mailer.conf"
+    dest: "/etc/mailer/mailer.conf"
