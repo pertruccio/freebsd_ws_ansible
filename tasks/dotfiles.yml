@@ -4,3 +4,22 @@
     dest: "~/.dotfiles"
   become_user: "{{ item }}"
   with_items: "{{ oh_my_zsh_users }}"
+
+- name: check if .ssh/authorized_keys exists
+  stat:
+    path: "~/.ssh/authorized_keys"
+  register: authorized_keys_path
+
+- name: backup if .ssh/authorized_keys exists
+  copy:
+    src: "~/.ssh/authorized_keys"
+    dest: "~/.ssh/authorized_keys.orig"
+    follow: yes
+    remote_src: True
+  when: authorized_keys_path.stat.exists
+  changed_when: False
+- name: set new .ssh/authorized_keys
+  file:
+    src: "~/.dotfiles/.ssh/authorized_keys"
+    dest: "~/.ssh/authorized_keys"
+    state: link
