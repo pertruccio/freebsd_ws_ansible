@@ -6,4 +6,5 @@
 - name: copy mailwrapper config
   copy:
     src: "../templates/mailer.conf"
-    dest: "/etc/mailer/mailer.conf"
+    dest: "/etc/mail/mailer.conf"
+    follow: yes
