@@ -20,10 +20,9 @@
   changed_when: False
 
 - name: set new .ssh/authorized_keys
-  file:
+  copy:
     src: "~/.dotfiles/.ssh/authorized_keys"
     dest: "~/.ssh/authorized_keys"
-    state: link
 
 - name: Restart service sshd, in all cases
   service:
