@@ -3,6 +3,12 @@
     src: "../templates/ssmtp.conf"
     dest: "/usr/local/etc/ssmtp/ssmtp.conf"
 
+- name: insert password in ssmtp config
+  replace: 
+    path: "/usr/local/etc/ssmtp/ssmtp.conf"
+    regexp: 'PASSWORD'
+    replace: "{{ ssmtp_password }}"
+
 - name: copy mailwrapper config
   copy:
     src: "../templates/mailer.conf"
