@@ -1,0 +1,4 @@
+- name: copy ssmtp config
+  copy:
+    src: "../templates/ssmtp.conf"
+    dest: "/usr/local/etc/ssmtp/ssmtp.conf"
