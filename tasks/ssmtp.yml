@@ -8,6 +8,6 @@
 - name: template mailer conf
   template:
     src: ../templates/mailer.j2
-    dest: /usr/mail/mailer.conf
+    dest: /etc/mail/mailer.conf
     owner: root
     group: wheel
