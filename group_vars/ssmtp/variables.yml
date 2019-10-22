@@ -1,1 +1,1 @@
-ssmtp_password: {{ vault_ssmtp_password }}
+ssmtp_password: "{{ vault_ssmtp_password }}"
