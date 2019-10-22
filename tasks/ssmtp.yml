@@ -1,0 +1,6 @@
+- name: template ssmtp conf
+  template:
+    src: ../templates/ssmtp.j2
+    dest: /usr/local/etc/ssmtp/ssmtp.conf
+    owner: root
+    group: ssmtp

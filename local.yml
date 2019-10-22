@@ -11,5 +11,5 @@
     - include: tasks/packages.yml
     - include: tasks/dotfiles.yml
     - include: tasks/ohmyzsh.yml
-    - include: tasks/mail_relay.yml
+    - include: tasks/ssmtp.yml
     - include: tasks/sshd_config.yml
