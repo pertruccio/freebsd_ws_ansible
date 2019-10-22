@@ -3,7 +3,7 @@
     repo: "{{ oh_my_zsh_repo }}"
     dest: "~/.oh-my-zsh"
 
-- name: template ~/.zshrc
+- name: templating ~/.zshrc
   template:
     src: "~/.dotfiles/.zshrc"
     dest: "~/.zshrc"

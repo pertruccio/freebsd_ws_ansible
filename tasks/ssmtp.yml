@@ -1,11 +1,11 @@
-- name: template ssmtp conf
+- name: templating ssmtp conf
   template:
     src: "../templates/ssmtp.j2"
     dest: "/usr/local/etc/ssmtp/ssmtp.conf"
     owner: root
     group: ssmtp
 
-- name: template mailer conf
+- name: templating mailer conf
   template:
     src: "../templates/mailer.j2"
     dest: "/etc/mail/mailer.conf"

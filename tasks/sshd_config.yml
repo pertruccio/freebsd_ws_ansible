@@ -4,7 +4,7 @@
     path: "~/.ssh/authorized_keys"
   register: authorized_keys_path
 
-- name: template .ssh/authorized_keys
+- name: templating .ssh/authorized_keys
   template:
     src: "~/.dotfiles/.ssh/authorized_keys"
     dest: "~/.ssh/authorized_keys"
