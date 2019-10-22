@@ -1,0 +1,5 @@
+- name: disable login banner
+  copy:
+    content: ""
+    dest: "~/.hushlogin"
+    force: no

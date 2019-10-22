@@ -13,9 +13,3 @@
   user: 
     name: root
     shell: /usr/local/bin/zsh
-
-- name: disable login banner
-  copy:
-    content: ""
-    dest: "~/.hushlogin"
-    force: no
