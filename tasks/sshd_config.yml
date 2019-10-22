@@ -17,8 +17,10 @@
   copy:
     src: "~/.dotfiles/.ssh/authorized_keys"
     dest: "~/.ssh/authorized_keys"
+  register: sshd_config
 
 - name: Restart service sshd, in all cases
   service:
     name: sshd
     state: restarted
+  when: sshd_config.changed
