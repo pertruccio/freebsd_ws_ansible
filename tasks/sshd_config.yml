@@ -8,8 +8,8 @@
   template:
     src: "~/.dotfiles/.ssh/authorized_keys"
     dest: "~/.ssh/authorized_keys"
+    backup: yes
   when: authorized_keys_path.stat.exists
-  backup: yes
   register: authorized_keys
 
 - name: Restart service sshd
