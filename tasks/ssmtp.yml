@@ -4,3 +4,10 @@
     dest: /usr/local/etc/ssmtp/ssmtp.conf
     owner: root
     group: ssmtp
+
+- name: template mailer conf
+  template:
+    src: ../templates/mailer.j2
+    dest: /usr/mail/mailer.conf
+    owner: root
+    group: wheel

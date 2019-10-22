@@ -1,5 +1,0 @@
-oh_my_zsh_repo: https://github.com/robbyrussell/oh-my-zsh
-oh_my_zsh_users:
-  - "{{ ansible_ssh_user }}"
-  - "root"
-oh_my_zsh_backup_zshrc: yes

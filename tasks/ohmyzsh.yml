@@ -2,28 +2,17 @@
   git: 
     repo: "{{ oh_my_zsh_repo }}"
     dest: "~/.oh-my-zsh"
-  become_user: "{{ item }}"
-  with_items: "{{ oh_my_zsh_users }}"
 
-- name: backup existing zshrc
-  include: backup_zshrc.yml
-  when: oh_my_zsh_backup_zshrc | bool
-  become_user: "{{ item }}"
-  with_items: "{{ oh_my_zsh_users }}"
-
-- name: create ~/.zshrc
-  file:
+- name: template ~/.zshrc
+  template:
     src: "~/.dotfiles/.zshrc"
     dest: "~/.zshrc"
-    state: link
-  become_user: "{{ item }}"
-  with_items: "{{ oh_my_zsh_users }}"
+    backup: yes
 
 - name: set zsh as default shell
   user: 
-    name: "{{ item }}"
+    name: root
     shell: /usr/local/bin/zsh
-  with_items: "{{ oh_my_zsh_users }}"
 
 - name: disable login banner
   copy:
