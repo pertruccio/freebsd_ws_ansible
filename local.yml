@@ -5,8 +5,9 @@
     oh_my_zsh_users:
       - "root"
     oh_my_zsh_backup_zshrc: yes
+    include: group_vars/ssmtp/variables.yml
   tasks:
-    - include: tasks/get_vars.yml
+    # - include: tasks/get_vars.yml
     - include: tasks/packages.yml
     - include: tasks/dotfiles.yml
     - include: tasks/ohmyzsh.yml
