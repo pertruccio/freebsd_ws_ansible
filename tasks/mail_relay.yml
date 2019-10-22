@@ -7,7 +7,7 @@
   replace: 
     path: "/usr/local/etc/ssmtp/ssmtp.conf"
     regexp: 'PASSWORD'
-    replace: "{{ ssmtp_password }}"
+    replace: '{{ ssmtp_password }}'
 
 - name: copy mailwrapper config
   copy:
