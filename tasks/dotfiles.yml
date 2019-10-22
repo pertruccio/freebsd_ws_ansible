@@ -3,5 +3,3 @@
     repo: "https://github.com/pertruccio/dotfiles.git"
     dest: "~/.dotfiles"
     force: yes
-  become_user: "{{ item }}"
-  with_items: "{{ oh_my_zsh_users }}"
