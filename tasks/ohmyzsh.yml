@@ -6,7 +6,7 @@
 - name: get k plugin
   git:
     repo: "https://github.com/supercrabtree/k"
-    dest: "$ZSH_CUSTOM/plugins/k"  
+    dest: "~/.oh-my-zsh/custom//plugins/k"  
 
 - name: templating ~/.zshrc
   template:
