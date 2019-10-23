@@ -3,6 +3,11 @@
     repo: "{{ oh_my_zsh_repo }}"
     dest: "~/.oh-my-zsh"
 
+- name: get k plugin
+  git:
+    repo: "https://github.com/supercrabtree/k"
+    dest: "$ZSH_CUSTOM/plugins/k"  
+
 - name: templating ~/.zshrc
   template:
     src: "~/.dotfiles/.zshrc"
