@@ -1,3 +1,8 @@
+- name: create sudoer group file if it doesn't exist
+  file:
+    path: "/usr/local/etc/sudoers.d/wheel-group"
+    state: touch
+
 - name: "Allow admin users to sudo without a password"
   lineinfile:
     dest: "/usr/local/etc/sudoers.d/wheel-group" # path: in version 2.3
