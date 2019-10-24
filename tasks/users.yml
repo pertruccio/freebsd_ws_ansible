@@ -13,7 +13,9 @@
 - name: add users
   user:
     name: "{{ item }}"
+    comment: "User Account {{ item }}"
     groups: "wheel"
+    shell: "/usr/local/bin/zsh"
   with_items: "{{ users }}"
 
 - name: "Add authorized keys"
