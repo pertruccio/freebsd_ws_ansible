@@ -1,0 +1,18 @@
+- name: "Allow admin users to sudo without a password"
+  lineinfile:
+    dest: "/usr/local/etc/sudoers.d/wheel-group" # path: in version 2.3
+    state: "present"
+    regexp: "^%wheel"
+    line: "%wheel ALL=(ALL) NOPASSWD: ALL"
+
+- name: add users
+  user:
+    name: "{{ item }}"
+    groups: "wheel"
+  with_items: "{{ users }}"
+
+- name: "Add authorized keys"
+  authorized_key:
+    user: "{{ item }}"
+    key: "https://raw.githubusercontent.com/pertruccio/dotfiles/master/.ssh/authorized_keys"
+  with_items: "{{ users }}"

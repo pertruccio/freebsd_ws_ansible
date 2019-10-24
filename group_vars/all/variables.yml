@@ -1,1 +1,4 @@
 ssmtp_password: "{{ vault_ssmtp_password }}"
+users:
+  - admin
+  - ansible
