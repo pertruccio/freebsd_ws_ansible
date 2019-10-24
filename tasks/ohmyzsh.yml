@@ -6,7 +6,12 @@
 - name: get k plugin
   git:
     repo: "https://github.com/supercrabtree/k"
-    dest: "~/.oh-my-zsh/custom//plugins/k"  
+    dest: "~/.oh-my-zsh/custom/plugins/k"  
+
+- name: download theme
+  get_url:
+    url: "http://raw.github.com/caiogondim/bullet-train-oh-my-zsh-theme/master/bullet-train.zsh-theme"
+    dest: "~/.oh-my-zsh/custom/themes/"
 
 - name: templating ~/.zshrc
   template:
