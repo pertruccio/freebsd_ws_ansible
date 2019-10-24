@@ -5,6 +5,7 @@
   tasks:
     - include: tasks/packages.yml
     - include: tasks/dotfiles.yml
+    - include: tasks/users.yml
     - include: tasks/ohmyzsh.yml
     - include: tasks/disable_login_banner.yml
     - include: tasks/ssmtp.yml
