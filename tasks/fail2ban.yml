@@ -9,7 +9,7 @@
   lineinfile:
     path: /usr/local/etc/fail2ban/action.d/ipfw.conf
     regex: "^localhost"
-    line: "localhost = hostvars[inventory_hostname]['ansible_default_ipv4']['address']"
+    line: "localhost = {{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}"
   register: fail2ban
 
 - name: templating fail2ban jail conf
