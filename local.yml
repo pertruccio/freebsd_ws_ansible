@@ -10,3 +10,4 @@
     - include: tasks/disable_login_banner.yml
     - include: tasks/ssmtp.yml
     - include: tasks/sshd_config.yml
+    - include: tasks/ipfw.yml
