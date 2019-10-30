@@ -2,6 +2,10 @@
   become: true
   vars:
     oh_my_zsh_repo: https://github.com/robbyrussell/oh-my-zsh
+
+  handlers:
+    - include: handlers/handler.yml
+
   tasks:
     - include: tasks/packages.yml
     - include: tasks/dotfiles.yml

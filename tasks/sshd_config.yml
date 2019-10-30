@@ -2,7 +2,7 @@
 - name: check if .ssh/authorized_keys exists
   stat:
     path: "~/.ssh/authorized_keys"
-  register: authorized_keys_path
+  notify: restart sshd_path
 
 - name: templating .ssh/authorized_keys
   template:
@@ -10,10 +10,4 @@
     dest: "~/.ssh/authorized_keys"
     backup: yes
   when: authorized_keys_path.stat.exists
-  register: authorized_keys
-
-- name: Restart service sshd
-  service:
-    name: sshd
-    state: restarted
-  when: authorized_keys.changed
+  notify: restart sshd

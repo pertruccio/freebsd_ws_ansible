@@ -3,38 +3,32 @@
     path: /etc/rc.conf
     regex: "^firewall_enable="
     line: "firewall_enable=YES"
-  register: ipfw
+  notify: restart ipfw
 
 - name: Type Config for ipfw in rc.conf
   lineinfile:
     path: /etc/rc.conf
     regex: "^firewall_type="
     line: "firewall_type=workstation"
-  register: ipfw
+  notify: restart ipfw
 
 - name: Silent Mode for ipfw in rc.conf
   lineinfile:
     path: /etc/rc.conf
     regex: "^firewall_quiet="
     line: "firewall_quit=YES"
-  register: ipfw
+  notify: restart ipfw
 
 - name: allowing all services outgoing ipfw in rc.conf
   lineinfile:
     path: /etc/rc.conf
     regex: "^firewall_allowservices="
     line: 'firewall_allowservices=any'
-  register: ipfw
+  notify: restart ipfw
 
 - name: allowing specific incoming services ipfw in rc.conf
   lineinfile:
     path: /etc/rc.conf
     regex: "^firewall_myservices="
     line: 'firewall_myservices="ssh http https"'
-  register: ipfw
-
-- name: Restart service ipfw
-  service:
-    name: ipfw
-    state: restarted
-  when: ipfw.changed
+  notify: restart ipfw

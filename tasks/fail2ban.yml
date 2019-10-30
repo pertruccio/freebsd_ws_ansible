@@ -3,14 +3,14 @@
     path: /etc/rc.conf
     regex: "^fail2ban_enable="
     line: "fail2ban_enable=YES"
-  register: fail2ban
+  notify: restart fail2ban
 
 - name: set correct localhost ip
   lineinfile:
     path: /usr/local/etc/fail2ban/action.d/ipfw.conf
     regex: "^localhost"
     line: "localhost = {{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}"
-  register: fail2ban
+  notify: restart fail2ban
 
 - name: templating fail2ban jail conf
   template:
@@ -18,10 +18,4 @@
     dest: "/usr/local/etc/fail2ban/jail.d/ssh-ipfw.local"
     owner: root
     group: wheel
-  register: fail2ban
-
-- name: restart fail2ban if sth changed
-  service:
-    name: fail2ban
-    state: restarted
-  when: fail2ban.changed
+  notify: restart fail2ban

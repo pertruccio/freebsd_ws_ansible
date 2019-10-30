@@ -1,0 +1,17 @@
+- name: restart fail2ban
+  become: true
+  service:
+    name: fail2ban
+    state: restarted
+
+- name: restart ipfw
+  become: true
+  service:
+    name: ipfw
+    state: restarted
+
+- name: restart sshd
+  become: true
+  service:
+    name: sshd
+    state: restarted
