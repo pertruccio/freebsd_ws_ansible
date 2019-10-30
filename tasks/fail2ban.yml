@@ -1,0 +1,20 @@
+- name: Activating fail2ban in rc.conf
+  lineinfile:
+    path: /etc/rc.conf
+    regex: "^fail2ban_enable="
+    line: "fail2ban_enable=YES"
+  register: fail2ban
+
+- name: templating fail2ban jail conf
+  template:
+    src: "../templates/fail2ban_jail.j2"
+    dest: "/usr/local/etc/fail2ban/jail.d/ssh-ipfw.local"
+    owner: root
+    group: wheel
+  register: fail2ban
+
+- name: restart fail2ban if sth changed
+  service:
+    name: fail2ban
+    state: restarted
+  when: fail2ban.changed

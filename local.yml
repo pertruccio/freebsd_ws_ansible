@@ -11,3 +11,4 @@
     - include: tasks/ssmtp.yml
     - include: tasks/sshd_config.yml
     - include: tasks/ipfw.yml
+    - include: tasks/fail2ban.yml
