@@ -1,15 +1,10 @@
-- name: create sudoer group file if it doesn't exist
-  file:
-    path: "/usr/local/etc/sudoers.d/wheel-group"
-    state: touch
-
-- name: "Allow admin users to sudo without a password"
-  lineinfile:
-    dest: "/usr/local/etc/sudoers.d/wheel-group" # path: in version 2.3
-    state: "present"
-    regexp: "^%wheel"
-    line: "%wheel ALL=(ALL) NOPASSWD: ALL"
-
+- name: templating sudoers config
+  template:
+    src: "../templates/sudoers.j2"
+    dest: "/usr/local/etc/sudoers.d/wheel-group"
+    owner: root
+    group: wheel
+    
 - name: add users
   user:
     name: "{{ item }}"
