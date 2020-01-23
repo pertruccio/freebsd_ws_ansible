@@ -25,6 +25,12 @@
     dest: "~/.zshrc"
     backup: yes
 
+- name: templating ~/.theme.zsh
+  template:
+    src: "~/.dotfiles/.theme.zsh"
+    dest: "~/.theme.zsh"
+    backup: yes
+
 - name: set zsh as default shell
   user: 
     name: root
