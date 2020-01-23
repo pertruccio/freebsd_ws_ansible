@@ -3,15 +3,21 @@
     repo: "{{ oh_my_zsh_repo }}"
     dest: "~/.oh-my-zsh"
 
-- name: get k plugin
-  git:
-    repo: "https://github.com/supercrabtree/k"
-    dest: "~/.oh-my-zsh/custom/plugins/k"  
+# - name: get k plugin
+#   git:
+#     repo: "https://github.com/supercrabtree/k"
+#     dest: "~/.oh-my-zsh/custom/plugins/k"  
 
-- name: download theme
-  get_url:
-    url: "http://raw.github.com/caiogondim/bullet-train-oh-my-zsh-theme/master/bullet-train.zsh-theme"
-    dest: "~/.oh-my-zsh/custom/themes/"
+# - name: download theme
+#   get_url:
+#     url: "http://raw.github.com/caiogondim/bullet-train-oh-my-zsh-theme/master/bullet-train.zsh-theme"
+#     dest: "~/.oh-my-zsh/custom/themes/"
+
+- name: theme install
+  git:
+    repo: "https://github.com/romkatv/powerlevel10k.git"
+    dest: "~/.oh-my-zsh/custom/themes/powerlevel10k"
+    depth: 1
 
 - name: templating ~/.zshrc
   template:
