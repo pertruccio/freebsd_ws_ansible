@@ -30,6 +30,10 @@
     repo: "https://github.com/zsh-users/zsh-autosuggestions"
     dest: "~/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
 
+# on freebsd you need to install lsd via rust and cargo
+# see https://github.com/Peltoche/lsd
+
+
 - name: templating ~/.zshrc
   template:
     src: "~/.dotfiles/.zshrc"
