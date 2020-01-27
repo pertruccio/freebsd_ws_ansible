@@ -30,5 +30,5 @@
   lineinfile:
     path: /etc/rc.conf
     regex: "^firewall_myservices="
-    line: 'firewall_myservices="ssh http https"'
+    line: 'firewall_myservices="ssh http https 655"'
   notify: restart ipfw
