@@ -17,6 +17,6 @@
     - include: tasks/ipfw.yml
     - include: tasks/fail2ban.yml
 
-- hosts: hoth.tech-ninja.de
+- hosts: hoth
   tasks:
     - include: tasks/temp.yml
