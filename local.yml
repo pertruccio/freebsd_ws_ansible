@@ -16,3 +16,7 @@
     - include: tasks/sshd_config.yml
     - include: tasks/ipfw.yml
     - include: tasks/fail2ban.yml
+
+- hosts: hoth.tech-ninja.de
+  tasks:
+    - include: tasks/temp.yml

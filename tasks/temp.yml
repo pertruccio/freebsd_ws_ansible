@@ -1,0 +1,4 @@
+- name: host filter test
+  file:
+      path: "~/thisisatest.txt"
+      state: touch
