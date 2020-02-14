@@ -17,6 +17,6 @@
     - include: tasks/ipfw.yml
     - include: tasks/fail2ban.yml
 
-- hosts: hoth
+- hosts: public_servers
   tasks:
     - include: tasks/temp.yml
