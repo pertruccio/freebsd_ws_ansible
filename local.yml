@@ -12,11 +12,15 @@
     - include: tasks/users.yml
     - include: tasks/ohmyzsh.yml
     - include: tasks/disable_login_banner.yml
-    - include: tasks/ssmtp.yml
     - include: tasks/sshd_config.yml
-    - include: tasks/ipfw.yml
-    - include: tasks/fail2ban.yml
 
 - hosts: public_servers
+  become: true
+
+  handlers:
+    - include: handlers/handler.yml
+
   tasks:
-    - include: tasks/temp.yml
+    - include: tasks/ipfw.yml
+    - include: tasks/fail2ban.yml
+    - include: tasks/ssmtp.yml
