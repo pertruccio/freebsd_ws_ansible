@@ -1,2 +1,6 @@
 [public_servers]
-hothi
+hoth.tech-ninja.de
+[generic]
+localhost
+[jails]
+airconnect
